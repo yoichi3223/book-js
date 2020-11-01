@@ -28,16 +28,14 @@
 </div><!-- /.container -->
 </footer>
 <script>
+  console.log((7 * 7)+"枚");
   'use strict';
-  const answer = window.prompt('ヘルプを見ますか?');
-  if(answer === 'yes'){
-    window.alert('タップでジャンプ,障害物をよけます');
-  } else if(answer === "no"){
-    window.alert("ゲーム起動中");
-  }else{
-    window.alert("yesかnoでお答えください。再度リロードをお願いします")
+let i = 1;
+const name = "枚"
+  while(i <= 10){
+    console.log(i + name);
+    i+=1;
   }
-  console.log(answer); 
-  </script>
+</script>
 </body>
 </html>

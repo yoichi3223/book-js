@@ -29,15 +29,20 @@
 </footer>
 <script>
   'use strict';
-  const answer = window.prompt('ヘルプを見ますか?');
-  if(answer === 'yes'){
-    window.alert('タップでジャンプ,障害物をよけます');
-  } else if(answer === "no"){
-    window.alert("ゲーム起動中");
+  const number = Math.floor(Math.random()*12);
+  const answer = parseInt(window.prompt('数当てゲーム。0〜5の数字を入力してね。'))
+  let message;
+  if(answer === number){
+    message = "あたり"
+  }else if(answer < number){
+    message = "残念でしたもっと大きい。"
+  }else if(answer > number){
+    message = "残念でしたもっと小さい"
   }else{
-    window.alert("yesかnoでお答えください。再度リロードをお願いします")
+    message = "0~5の数を入力してね"
   }
-  console.log(answer); 
-  </script>
+  window.alert(message);
+  console.log(message);
+</script>
 </body>
 </html>

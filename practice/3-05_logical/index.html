@@ -29,15 +29,15 @@
 </footer>
 <script>
   'use strict';
-  const answer = window.prompt('ヘルプを見ますか?');
-  if(answer === 'yes'){
-    window.alert('タップでジャンプ,障害物をよけます');
-  } else if(answer === "no"){
-    window.alert("ゲーム起動中");
+  const hours = new Date().getHours();
+  if(hours >= 19 && hours <= 21){
+    window.alert('お弁当が30%引きです');
+  }else if(hours === 9 || hours === 15){
+    window.alert('お弁当を1個おまけ');
   }else{
-    window.alert("yesかnoでお答えください。再度リロードをお願いします")
+    window.alert('お弁当はいかがですか？');
   }
-  console.log(answer); 
-  </script>
+  console.log(hours)
+</script>
 </body>
 </html>
