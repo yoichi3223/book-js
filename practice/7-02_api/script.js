@@ -33,7 +33,7 @@ lang: 'ja'
 console.log(data);
 console.log('都市名'+data.city.name);
 console.log('都市名'+data.city.country);
-
+$('#place').text(data.city.name + ',' + data.city.country);
 data.list.forEach(function(forecast, index) {
             const dateTime = new Date(utcToJSTime(forecast.dt));
             const month = dateTime.getMonth() + 1;
@@ -48,6 +48,28 @@ data.list.forEach(function(forecast, index) {
             console.log('気温：' + temperature);
             console.log('天気：' + description);
             console.log('画像パス：' + iconPath);
+            if(index === 0) {
+                const currentWeather = `
+                <div class="icon"><img src="${iconPath}"></div>
+                <div class="info">
+                    <p>
+                        <span class="description">現在の天気：${description}</span>
+                        <span class="temp">${temperature}</span>°C
+                    </p>
+                </div>`;
+                $('#weather').html(currentWeather);
+            } else {
+                const tableRow = `
+                <tr>
+                    <td class="info">
+                        ${month}/${date} ${hours}:${min}
+                    </td>
+                    <td class="icon"><img src="${iconPath}"></td>
+                    <td><span class="description">${description}</span></td>
+                    <td><span class="temp">${temperature}°C</span></td>
+                </tr>`;
+                $('#forecast').append(tableRow);
+            }
         });
 })
 .fail(function(){
